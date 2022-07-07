@@ -8,6 +8,7 @@ import java.util.Map;
 /**
  * https://leetcode.cn/problems/course-schedule/
  * 拓扑排序
+ * 反向遍历，逐层移除出度为0的节点
  *
  * @author 天何
  * @date 2022/7/4

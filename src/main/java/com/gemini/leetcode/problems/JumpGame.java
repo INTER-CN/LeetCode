@@ -3,6 +3,7 @@ package com.gemini.leetcode.problems;
 /**
  * https://leetcode.cn/problems/jump-game/
  * 贪心
+ * 扫描过程实时存储当前能达到的最远位置
  *
  * @author 天何
  * @date 2022/6/30
