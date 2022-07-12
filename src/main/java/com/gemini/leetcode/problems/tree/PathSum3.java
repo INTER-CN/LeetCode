@@ -1,4 +1,4 @@
-package com.gemini.leetcode.problems.tree.pathsum;
+package com.gemini.leetcode.problems.tree;
 
 import com.gemini.leetcode.model.TreeNode;
 
