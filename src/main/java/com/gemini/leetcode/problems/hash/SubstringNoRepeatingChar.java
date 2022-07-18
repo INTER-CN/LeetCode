@@ -1,4 +1,4 @@
-package com.gemini.leetcode.problems.logic;
+package com.gemini.leetcode.problems.hash;
 
 import java.util.HashMap;
 import java.util.Map;
