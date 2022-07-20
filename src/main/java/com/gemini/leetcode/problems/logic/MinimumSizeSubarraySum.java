@@ -31,9 +31,44 @@ public class MinimumSizeSubarraySum {
         return minSize;
     }
 
+    /**
+     * 字节面试题
+     */
+    public int minSubArrayLen2(int target, int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+
+        int len = nums.length;
+        int left = 0, right = -1;
+        int sum = 0;
+        int min = 0;
+        while (right < len - 1) {
+            // right后移
+            while (right < len) {
+                right++;
+                if (right == len) break;
+                sum += nums[right];
+                if (sum >= target) break;
+            }
+            if (sum < target) break;
+
+            // left后移
+            while (left <= right) {
+                sum -= nums[left];
+                left++;
+                if (sum < target) break;
+            }
+
+            int count = right - left + 2;
+            if (min == 0 || count < min) min = count;
+            if (min == 1) return min;
+        }
+
+        return min;
+    }
+
     public static void main(String[] args) {
-        int[] nums = {2, 3, 1, 2, 4, 3};
+        int[] nums = {1, 3, 4, 3, 9, 1};
         int target = 13;
-        System.out.println(new MinimumSizeSubarraySum().minSubArrayLen(target, nums));
+        System.out.println(new MinimumSizeSubarraySum().minSubArrayLen2(target, nums));
     }
 }
