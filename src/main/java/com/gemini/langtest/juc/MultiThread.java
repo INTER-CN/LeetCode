@@ -11,6 +11,9 @@ import java.util.concurrent.locks.ReentrantLock;
 public class MultiThread {
 
     private Lock lock = new ReentrantLock();
+
+    private CountDownLatch latch = new CountDownLatch(2);
+
     private int num = 1;
 
     public void print(int i) {
@@ -26,39 +29,48 @@ public class MultiThread {
         }
     }
 
-    public static void main(String[] args) throws InterruptedException {
-//        MultiThread multiThread = new MultiThread();
-//
-//        Thread t1 = new Thread(() -> {
-//            multiThread.print(1);
-//        });
-//        t1.start();
-//
-//        Thread t2 = new Thread(() -> {
-//            multiThread.print(2);
-//        });
-//        t2.start();
-//
-//        Thread t3 = new Thread(() -> {
-//            multiThread.print(0);
-//        });
-//        t3.start();
+    public void testWaitCountDown(int n) {
+        try {
+            latch.await();
+            System.out.println("CountDownLatch await " + n);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
-        CountDownLatch latch = new CountDownLatch(3);
-        latch.countDown();
-        System.out.println("countDown");
-        latch.countDown();
-        System.out.println("countDown");
-//        latch.countDown();
-//        System.out.println("countDown");
-        latch.await();
-        System.out.println("await");
-        latch.await();
-        System.out.println("await");
-        latch.await();
-        System.out.println("await");
-        latch.await();
-        System.out.println("await");
+    public void testCountDown(int n) {
+        try {
+            Thread.sleep(n * 1000L);
+            latch.countDown();
+            System.out.println("CountDownLatch countDown " + n);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        MultiThread multiThread = new MultiThread();
+
+        Thread t1 = new Thread(() -> {
+            multiThread.testWaitCountDown(1);
+        });
+        t1.start();
+
+        Thread t2 = new Thread(() -> {
+            multiThread.testCountDown(2);
+        });
+        t2.start();
+
+        Thread t3 = new Thread(() -> {
+            multiThread.testCountDown(3);
+        });
+        t3.start();
+
+        Thread t4 = new Thread(() -> {
+            multiThread.testWaitCountDown(4);
+        });
+        t4.start();
+
     }
 
 }

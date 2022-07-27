@@ -1,4 +1,4 @@
-package com.gemini.nowcoder.logic;
+package com.gemini.nowcoder.str;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
