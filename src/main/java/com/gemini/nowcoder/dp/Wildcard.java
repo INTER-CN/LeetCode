@@ -1,4 +1,4 @@
-package com.gemini.nowcoder.str;
+package com.gemini.nowcoder.dp;
 
 import java.util.Scanner;
 

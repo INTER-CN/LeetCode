@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * 和为 K 的子数组
  * https://leetcode.cn/problems/subarray-sum-equals-k/
  * 前缀和 + 哈希表
  *
