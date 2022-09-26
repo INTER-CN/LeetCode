@@ -39,7 +39,7 @@ public class LevelTraverse {
     }
 
     public static void main(String[] args) {
-        TreeNode testTree = TraverseTool.getTestTree();
+        TreeNode testTree = TreeNode.getTestTree();
         List<List<Integer>> result = new LevelTraverse().levelOrder(testTree);
         System.out.println(new Gson().toJson(result));
     }

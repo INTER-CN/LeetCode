@@ -34,7 +34,7 @@ public class PreorderTraverse {
     }
 
     public static void main(String[] args) {
-        TreeNode testTree = TraverseTool.getTestTree();
+        TreeNode testTree = TreeNode.getTestTree();
         List<Integer> result = new PreorderTraverse().preorderTraversal(testTree);
         System.out.println(new Gson().toJson(result));
     }

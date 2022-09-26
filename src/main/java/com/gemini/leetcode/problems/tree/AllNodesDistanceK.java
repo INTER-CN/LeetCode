@@ -1,7 +1,6 @@
 package com.gemini.leetcode.problems.tree;
 
 import com.gemini.leetcode.model.TreeNode;
-import com.gemini.leetcode.problems.tree.traverse.TraverseTool;
 
 import java.util.*;
 
@@ -76,7 +75,7 @@ public class AllNodesDistanceK {
     }
 
     public static void main(String[] args) {
-        TreeNode testTree = TraverseTool.getTestTree();
+        TreeNode testTree = TreeNode.getTestTree();
         TreeNode target = testTree.left;
         System.out.println(new AllNodesDistanceK().distanceK(testTree, target, 1));
     }

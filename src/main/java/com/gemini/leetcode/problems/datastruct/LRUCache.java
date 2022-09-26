@@ -11,7 +11,7 @@ import java.util.Map;
  */
 public class LRUCache {
 
-    class ListNode {
+    private class ListNode {
         public int key;
         public int value;
         public ListNode left;

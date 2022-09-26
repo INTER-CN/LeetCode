@@ -1,7 +1,6 @@
 package com.gemini.leetcode.problems.dp;
 
 import com.gemini.leetcode.model.TreeNode;
-import com.gemini.leetcode.problems.tree.traverse.TraverseTool;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -63,7 +62,7 @@ public class HouseRobber3 {
     }
 
     public static void main(String[] args) {
-        TreeNode testTree = TraverseTool.getTestTree();
+        TreeNode testTree = TreeNode.getTestTree();
         System.out.println(new HouseRobber3().rob(testTree));
     }
 }

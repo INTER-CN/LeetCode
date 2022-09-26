@@ -1,4 +1,4 @@
-package com.gemini.leetcode.problems.topo;
+package com.gemini.leetcode.problems.search;
 
 import java.util.ArrayList;
 import java.util.HashMap;

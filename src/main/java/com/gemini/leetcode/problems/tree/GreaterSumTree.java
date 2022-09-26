@@ -1,7 +1,6 @@
 package com.gemini.leetcode.problems.tree;
 
 import com.gemini.leetcode.model.TreeNode;
-import com.gemini.leetcode.problems.tree.traverse.TraverseTool;
 
 import java.util.Stack;
 
@@ -53,7 +52,7 @@ public class GreaterSumTree {
     }
 
     public static void main(String[] args) {
-        TreeNode testTree = TraverseTool.getTestTree();
+        TreeNode testTree = TreeNode.getTestTree();
         TreeNode result = new GreaterSumTree().convertBST(testTree);
         System.out.println(result);
     }

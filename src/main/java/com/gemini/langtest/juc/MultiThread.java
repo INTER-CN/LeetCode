@@ -48,29 +48,16 @@ public class MultiThread {
         }
     }
 
+    public static synchronized void f() {
+        System.out.println("execute f()");
+        new Thread(() -> {
+            System.out.println("new thread");
+            f();
+        }).start();
+    }
+
     public static void main(String[] args) throws InterruptedException {
-        MultiThread multiThread = new MultiThread();
-
-        Thread t1 = new Thread(() -> {
-            multiThread.testWaitCountDown(1);
-        });
-        t1.start();
-
-        Thread t2 = new Thread(() -> {
-            multiThread.testCountDown(2);
-        });
-        t2.start();
-
-        Thread t3 = new Thread(() -> {
-            multiThread.testCountDown(3);
-        });
-        t3.start();
-
-        Thread t4 = new Thread(() -> {
-            multiThread.testWaitCountDown(4);
-        });
-        t4.start();
-
+        f();
     }
 
 }

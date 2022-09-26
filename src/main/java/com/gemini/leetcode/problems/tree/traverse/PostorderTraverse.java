@@ -50,7 +50,7 @@ public class PostorderTraverse {
     }
 
     public static void main(String[] args) {
-        TreeNode testTree = TraverseTool.getTestTree();
+        TreeNode testTree = TreeNode.getTestTree();
         List<Integer> result = new PostorderTraverse().postorderTraversal(testTree);
         System.out.println(new Gson().toJson(result));
     }

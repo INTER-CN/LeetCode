@@ -1,4 +1,4 @@
-package com.gemini.leetcode.problems.array;
+package com.gemini.leetcode.problems.presum;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,24 +14,18 @@ import java.util.Map;
 public class SubarraySumK {
 
     public int subarraySum(int[] nums, int k) {
-        // 前缀和 与其出现的次数 之间的映射
+        // 前缀和 与 出现次数 的映射
         Map<Integer, Integer> map = new HashMap<>();
-        int sum = 0;
         map.put(0, 1);
-
-        int pre;
+        int sum = 0;
         int count = 0;
+        int pre;
         for (int num : nums) {
             sum += num;
             pre = sum - k;
-            if (map.containsKey(pre)) {
-                count += map.get(pre);
-            }
-            if (map.containsKey(sum)) {
-                map.put(sum, map.get(sum) + 1);
-            } else {
-                map.put(sum, 1);
-            }
+            if (map.containsKey(pre)) count += map.get(pre);
+            int c = map.getOrDefault(sum, 0);
+            map.put(sum, c + 1);
         }
 
         return count;

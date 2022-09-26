@@ -3,10 +3,7 @@ package com.gemini.leetcode.problems.tree.traverse;
 import com.gemini.leetcode.model.TreeNode;
 import com.google.gson.Gson;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * https://leetcode.cn/problems/binary-tree-inorder-traversal/
@@ -17,7 +14,7 @@ import java.util.Stack;
  */
 public class InorderTraverse {
 
-    class TraverseState {
+    private class TraverseState {
         public TreeNode node;
         public boolean traversed;
 
@@ -49,9 +46,34 @@ public class InorderTraverse {
         return list;
     }
 
+    public List<Integer> inorderTraversal2(TreeNode root) {
+        if (root == null) return Collections.emptyList();
+
+        List<Integer> result = new LinkedList<>();
+
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode leftNode = root;
+        while (leftNode != null) {
+            stack.push(leftNode);
+            leftNode = leftNode.left;
+        }
+
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            result.add(node.val);
+            leftNode = node.right;
+            while (leftNode != null) {
+                stack.push(leftNode);
+                leftNode = leftNode.left;
+            }
+        }
+
+        return result;
+    }
+
     public static void main(String[] args) {
-        TreeNode testTree = TraverseTool.getTestTree();
-        List<Integer> result = new InorderTraverse().inorderTraversal(testTree);
+        TreeNode testTree = TreeNode.getTestTree();
+        List<Integer> result = new InorderTraverse().inorderTraversal2(testTree);
         System.out.println(new Gson().toJson(result));
     }
 }
